@@ -1,0 +1,119 @@
+﻿<Window x:Class="diff_bin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:diff_bin"
+        xmlns:uc="clr-namespace:user_control"
+        mc:Ignorable="d"
+        Title="Difference bin files" Height="400" Width="600" Top="100" Left="900">
+        <!--
+        WindowStartupLocation="CenterScreen"
+        -->
+        
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>                             
+            <Setter Property="FontSize" Value="14"/>                             
+            <Setter Property="FontFamily" Value="Kartika"/>                             
+            <Setter Property="Margin" Value="4"/>                             
+            <Setter Property="Padding" Value="20"/>           
+            <Setter Property="Foreground" Value="#107010"/>           
+            <Setter Property="AllowDrop" Value="True"/>           
+            <EventSetter Event="DragEnter" Handler="event_DragEnter"/>
+            <EventSetter Event="DragLeave" Handler="event_DragLeave"/>
+            <EventSetter Event="PreviewDrop" Handler="event_PreviewDrop"/>
+            <Setter Property="Background" Value="{Binding StateColor, Mode=OneWay}"/>        
+    
+            
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>                             
+            <Setter Property="FontSize" Value="12"/>                             
+            <Setter Property="FontFamily" Value="Arial"/>                             
+            <Setter Property="Margin" Value="4"/>                             
+            <Setter Property="Padding" Value="2"/>           
+            <Setter Property="Foreground" Value="DarkBlue"/>           
+            <Setter Property="HorizontalAlignment" Value="Right"/>        
+            <Setter Property="VerticalAlignment" Value="Center"/>        
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>                             
+            <Setter Property="FontSize" Value="12"/>                             
+            <Setter Property="Margin" Value="4"/>                             
+            <Setter Property="Padding" Value="2"/>        
+            <Setter Property="TextAlignment" Value="Center"/>        
+            <Setter Property="IsReadOnly" Value="True"/>        
+            <Setter Property="SelectionBrush" Value="White"/>        
+            <Setter Property="Foreground" Value="{Binding LenColor, Mode=OneWay}"/>        
+            
+            <Setter Property="Text" Value="{Binding BytesSize, Mode=OneWay}"/>        
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding LoadingNow}" Value="True">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+
+               
+        </Style>
+        <Style TargetType="ProgressBar">
+            <Setter Property="Minimum" Value="0"/>                             
+            <Setter Property="Maximum" Value="100"/>                             
+            <Setter Property="Margin" Value="4"/>                             
+            <Setter Property="Background" Value="White"/>              
+            <Setter Property="Value" Value="{Binding Progress, Mode=OneWay}"/>        
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding LoadingNow}" Value="False">
+                    <Setter Property="Visibility" Value="Hidden"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
+
+    </Window.Resources>
+
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0" Content="ORI" x:Name="oriButton"/>
+        <Button Grid.Column="1" Grid.Row="0" Content="MOD" x:Name="modButton"/>
+        <Button Grid.Column="2" Grid.Row="0" Content="DES" x:Name="desButton"/>
+
+        <TextBox Grid.Column="0" Grid.Row="1" x:Name="oriTextBox"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="modTextBox"/>
+        <TextBox Grid.Column="2" Grid.Row="1" x:Name="desTextBox"/>
+        
+        <ProgressBar Grid.Column="0" Grid.Row="1" x:Name="oriProgress"/>
+        <ProgressBar Grid.Column="1" Grid.Row="1" x:Name="modProgress"/>
+        <ProgressBar Grid.Column="2" Grid.Row="1" x:Name="desProgress"/>
+
+        <uc:MyProtocolTeplate x:Name="protocol" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="4"/>
+<!--
+        <Label Grid.Column="0" Grid.Row="0" Content="Drag files here"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="File sizes, (bytes)" />
+
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="16"
+                AllowDrop="True"  Background="red"   PreviewDrop="FilesDropped" >
+            
+            <Label Content="filepath" x:Name="file_label"/>
+        </StackPanel>
+
+
+
+DragEnter="event_DragEnter" Drop="event_Drop"
+    PreviewDragEnter="FilesDragEnter"
+        <GroupBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Title="Protocol" Margin="6"/>
+        -->
+
+    </Grid>
+</Window>

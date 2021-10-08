@@ -45,6 +45,23 @@ namespace mylib.fileworker
             else if (key == "clock") file_name = "clock.png";
             else if (key == "open") file_name = "open.png";
             else if (key == "load" || key == "read_file") file_name = "load.png";
+            else if (key == "arrow_up") file_name = "up-arrow.png";
+            else if (key == "arrow_down") file_name = "down-arrow.png";
+            else if (key == "ball_orange") file_name = "ball_orange.png";
+
+            else if (key == "usa_flag") file_name = "flags/usa.png";
+            else if (key == "rus_flag") file_name = "flags/rus.png";
+            else if (key == "germany_flag") file_name = "flags/germany.png";
+            else if (key == "england_flag") file_name = "flags/england.png";
+            else if (key == "brazil_flag") file_name = "flags/brazil.png";
+            else if (key == "japan_flag") file_name = "flags/japan.png";
+            else if (key == "canada_flag") file_name = "flags/canada.png";
+            else if (key == "china_flag") file_name = "flags/china.png";
+            else if (key == "ireland_flag") file_name = "flags/ireland.png";
+            else if (key == "chf_flag") file_name = "flags/chf.png";
+            else if (key == "netherlands_flag") file_name = "flags/netherlands.png";
+            else if (key == "india_flag") file_name = "flags/india.png";
+            else if (key == "argentina_flag") file_name = "flags/argentina.png";
 
             return String.Format("{0}/{1}", defaultIconsDir(), file_name);
         }

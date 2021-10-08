@@ -221,7 +221,7 @@ namespace mylib.stringworker
             catch {p = -9999;}
             return p;
         }
-        public static double toInt(string s)
+        public static int toInt(string s)
         {
             int p = 0;
             try {p = Convert.ToInt32(s);}

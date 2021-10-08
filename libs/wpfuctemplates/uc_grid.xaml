@@ -1,0 +1,38 @@
+<UserControl x:Class="wpfuctemplates.MyGridTeplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpfuctemplates"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <GroupBox x:Name="box">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>    
+
+            <StackPanel Margin="40,2,40,2" Background="Cornsilk">
+                <Grid Grid.Row="0"> 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>    
+
+                    <Label Content="Search:" Grid.Column="0" Foreground="Blue" FontWeight="Bold" FontStyle="Italic"/>
+                    <TextBox x:Name="searchText1" Grid.Column="1" Margin="2" TextChanged="searchText1_TextChanged"/>
+                    <TextBox x:Name="searchText2" Grid.Column="2" Margin="2" TextChanged="searchText1_TextChanged"/>
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="table" Margin="2,4,2,4" AutoGenerateColumns="false" Grid.Row="1"/>
+
+            <Label Grid.Row="2" x:Name="rowsLabel" Content="{Binding RowsInfo, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+        </Grid>
+    </GroupBox>
+</UserControl>
